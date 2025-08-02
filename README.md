@@ -1,5 +1,44 @@
 # Claude Runner (Local Container Offload)
 
+---
+
+## 🆕 Persistent Runner Workflow (Recommended)
+
+**To avoid credential issues and ensure smooth operation, use a persistent Docker container as your Claude runner.**
+
+### 1. Start the persistent runner container
+
+```bash
+./scripts/start_runner_container.sh
+```
+This launches a background container named `claude-runner` with your workspace and credentials mounted.
+
+### 2. Exec into the container shell
+
+```bash
+docker exec -it claude-runner bash
+```
+
+### 3. (First time only) Run `claude` and complete `/login`
+
+Inside the container shell, run:
+```bash
+claude
+```
+Then run `/login` and complete the authentication flow.
+
+### 4. Run all Claude CLI operations inside the container
+
+- Plans, tool calls, and all code execution should be done from the container shell.
+- Your workspace is mounted at `/workspace` and changes are synced with your host.
+
+---
+
+For advanced users: You can mount additional volumes or expose ports as needed for remote workflows.
+
+---
+
+
 Run Claude Code plans **entirely inside Docker** while still using your **Claude Max / Pro** subscription and keeping all commits on a local branch.
 
 ---
