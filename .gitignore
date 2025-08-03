@@ -1,0 +1,34 @@
+# Claude Docker authentication files (user-specific)
+.claude-docker/
+
+# Test outputs
+tests/test_output.log
+tests/*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Node.js (if used in hooks)
+node_modules/
+npm-debug.log*
+
+# Python (if used in scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Docker volumes (if any)
+volumes/
